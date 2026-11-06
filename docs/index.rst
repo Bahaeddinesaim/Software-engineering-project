@@ -17,6 +17,7 @@ Travail académique de groupe ; aucun autre membre n'est déclaré.
    architecture
    evaluation
    api
+   dashboard
    testing
    development
    reference

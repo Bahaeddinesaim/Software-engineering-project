@@ -2,15 +2,17 @@ Running Sphinx v8.2.3
 loading translations [fr]... done
 building [mo]: targets for 0 po files that are out of date
 writing output...
-building [html]: targets for 8 source files that are out of date
-updating environment: [new config] 8 added, 0 changed, 0 removed
-reading sources... [ 12%] api
-reading sources... [ 25%] architecture
-reading sources... [ 38%] dataset
+building [html]: targets for 10 source files that are out of date
+updating environment: [new config] 10 added, 0 changed, 0 removed
+reading sources... [ 10%] api
+reading sources... [ 20%] architecture
+reading sources... [ 30%] dashboard
+reading sources... [ 40%] dataset
 reading sources... [ 50%] development
-reading sources... [ 62%] index
-reading sources... [ 75%] installation
-reading sources... [ 88%] reference
+reading sources... [ 60%] evaluation
+reading sources... [ 70%] index
+reading sources... [ 80%] installation
+reading sources... [ 90%] reference
 reading sources... [100%] testing
 
 looking for now-outdated files... none found
@@ -27,13 +29,15 @@ copying static files: done
 copying extra files...
 copying extra files: done
 copying assets: done
-writing output... [ 12%] api
-writing output... [ 25%] architecture
-writing output... [ 38%] dataset
+writing output... [ 10%] api
+writing output... [ 20%] architecture
+writing output... [ 30%] dashboard
+writing output... [ 40%] dataset
 writing output... [ 50%] development
-writing output... [ 62%] index
-writing output... [ 75%] installation
-writing output... [ 88%] reference
+writing output... [ 60%] evaluation
+writing output... [ 70%] index
+writing output... [ 80%] installation
+writing output... [ 90%] reference
 writing output... [100%] testing
 
 generating indices... genindex py-modindex done
@@ -43,6 +47,9 @@ highlighting module code... [ 75%] telcoguard.ml.inference
 highlighting module code... [100%] telcoguard.ml.training
 
 writing additional pages... search done
+copying images... [ 50%] ../reports/ui/overview-desktop.png
+copying images... [100%] ../reports/ui/simulator-desktop.png
+
 dumping search index in French (code: fr)... done
 dumping object inventory... done
 build succeeded.

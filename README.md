@@ -9,6 +9,38 @@ interprétable, avec séparation entre données, apprentissage et service REST.
 SOENFO, année 2026–2027. Enseignante : Dr. Nour El Houda Ben Chaabene.
 **Auteur : SAIM Bahaeddine ; Hazem OUNI** Projet de groupe.
 
+## Plateforme de démonstration Streamlit
+
+Une interface française en bleu encre et corail accompagne désormais l'API :
+tableau de bord IBM, simulateur avec trois profils modifiables, exploration filtrée
+des données et présentation des performances réelles du modèle.
+
+Dans cet espace de travail :
+
+```powershell
+.\.venv\Scripts\python -m streamlit run streamlit_app.py --server.port 8501
+```
+
+Ouvrir **http://127.0.0.1:8501**. Après installation dans un clone neuf :
+
+```console
+poetry install
+poetry run telcoguard download
+poetry run telcoguard train
+poetry run streamlit run streamlit_app.py
+```
+
+Le simulateur charge le modèle local ; il fonctionne sans lancer FastAPI et sans
+clé API. Cela constitue un mode de démonstration local distinct de l'API protégée.
+Le serveur est lié à `127.0.0.1` ; aucune authentification Streamlit n'est fournie.
+Les profils sont hypothétiques, les scores sont calculés par le vrai modèle et
+les graphiques utilisent exclusivement `data/raw/telco.csv`, sans identifiants.
+Les montants gardent l'unité du dataset ; ils ne sont pas présentés comme des euros.
+
+![Tableau de bord Streamlit](reports/ui/overview-desktop.png)
+
+Voir [le guide de démonstration](docs/dashboard.rst) et les captures dans `reports/ui/`.
+
 ## Besoin métier et données
 
 Estimer le risque de churn aide à prioriser les actions de fidélisation. Une prédiction

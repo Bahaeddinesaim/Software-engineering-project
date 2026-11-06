@@ -73,8 +73,8 @@ La requête `examples/customer.json` produit réellement :
 | API réelle et Swagger | PASS | Uvicorn subprocess et requêtes HTTP, `reports/live_api.json` |
 | GET /health et POST /predict | PASS | 200 / 200 avec modèle et clé prêts |
 | Sécurité et validation | PASS | 401 sans clé et mauvaise clé, 422 payload invalide ; tests 503/500 |
-| Tests automatisés | PASS | **41 tests réussis** ; `reports/checks/pytest.log` |
-| Couverture ≥ 75 % | PASS | **98,95 %**, 284 lignes exécutées sur 287 ; `htmlcov/index.html` |
+| Tests automatisés | PASS | **44 tests réussis**, dont trois parcours Streamlit ; `reports/checks/pytest.log` |
+| Couverture ≥ 75 % | PASS | **97,15 %**, 579 lignes exécutées sur 596 ; `htmlcov/index.html` |
 | Ruff lint et format | PASS | contrôles finaux sans erreur, logs `reports/checks/` |
 | Poetry et lock | PASS | `poetry check --lock --strict`, `poetry.lock` généré |
 | Package wheel et sdist | PASS | `dist/telcoguard_ai-1.0.0-py3-none-any.whl` et `.tar.gz` |
@@ -85,6 +85,7 @@ La requête `examples/customer.json` produit réellement :
 | Python 3.12 en local | NOT RUN | vérifications exécutées avec Python 3.11 ; 3.12 déclaré en CI |
 | README, installation Windows/Linux | PASS | commandes complètes, exemples JSON, sécurité et limites |
 | Soutenance et questions | PASS | plan de 20 minutes et 30 questions/réponses |
+| Plateforme Streamlit | PASS | quatre vues, prédiction locale, filtres, export, captures ordinateur/mobile |
 | Secrets et données exclus de Git | PASS | `.env`, CSV, modèles et environnements ignorés ; clé de smoke test éphémère non écrite |
 
 Les journaux des contrôles et codes de sortie sont dans `reports/checks/` et
