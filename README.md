@@ -7,7 +7,7 @@ interprétable, avec séparation entre données, apprentissage et service REST.
 
 **Contexte académique :** MSc Informatique & Management, spécialisation Data, EPITA,
 SOENFO, année 2026–2027. Enseignante : Dr. Nour El Houda Ben Chaabene.
-**Auteur : SAIM Bahaeddine ; Hazem OUNI** Projet de groupe.
+**Auteurs : SAIM Bahaeddine ; Hazem OUNI** Projet de groupe.
 
 ## Besoin métier et données
 
