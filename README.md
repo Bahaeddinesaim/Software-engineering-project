@@ -177,3 +177,4 @@ validation prospective et surveillance du drift.
 **Usage de l'IA :** Codex a assisté la rédaction du code, des tests et de la
 documentation. Les résultats présentés proviennent des commandes exécutées ;
 l'auteur reste responsable de la revue, de la compréhension et de la soutenance.
+# Software-engineering-project
