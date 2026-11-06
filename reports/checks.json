@@ -1,0 +1,34 @@
+{
+  "workflow_structure": {
+    "status": "PASS",
+    "scope": "YAML parsing and structural assertions; not a remote execution"
+  },
+  "poetry_check": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "ruff_check": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "ruff_format": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "pytest": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "poetry_build": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "sphinx": {
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "live_api": {
+    "status": "PASS",
+    "exit_code": 0
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "health": 200,
+  "predict": 200,
+  "missing_key": 401,
+  "wrong_key": 401,
+  "invalid_payload": 422,
+  "swagger": 200,
+  "openapi": 200
+}

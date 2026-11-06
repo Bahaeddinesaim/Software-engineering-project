@@ -1,0 +1,15 @@
+INFO:     Started server process [30000]
+INFO:     Waiting for application startup.
+INFO telcoguard.api.main application_starting
+INFO telcoguard.api.main model_loaded
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:60191 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56859 - "GET /health HTTP/1.1" 200 OK
+INFO telcoguard.api.routes prediction_completed
+INFO:     127.0.0.1:56859 - "POST /predict HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56859 - "POST /predict HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56859 - "POST /predict HTTP/1.1" 401 Unauthorized
+WARNING telcoguard.api.main request_validation_failed
+INFO:     127.0.0.1:56859 - "POST /predict HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:56859 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56859 - "GET /openapi.json HTTP/1.1" 200 OK

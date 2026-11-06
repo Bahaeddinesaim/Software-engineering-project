@@ -1,0 +1,41 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\bahae\Desktop\software engineering projet
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0, platformdirs-4.14.5, cov-7.1.0
+collected 41 items
+
+tests\api\test_api.py ..............                                     [ 34%]
+tests\integration\test_training.py ...                                   [ 41%]
+tests\unit\test_cli.py ....                                              [ 51%]
+tests\unit\test_data.py .............                                    [ 82%]
+tests\unit\test_ml.py .......                                            [100%]
+
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.11.9-final-0 _______________
+
+Name                                 Stmts   Miss  Cover   Missing
+------------------------------------------------------------------
+src\telcoguard\__init__.py               1      0   100%
+src\telcoguard\api\__init__.py           0      0   100%
+src\telcoguard\api\dependencies.py      11      0   100%
+src\telcoguard\api\main.py              33      0   100%
+src\telcoguard\api\routes.py            26      0   100%
+src\telcoguard\api\schemas.py           31      0   100%
+src\telcoguard\cli.py                   28      1    96%   45
+src\telcoguard\config.py                14      0   100%
+src\telcoguard\data\__init__.py          0      0   100%
+src\telcoguard\data\loader.py           35      0   100%
+src\telcoguard\data\validation.py       36      0   100%
+src\telcoguard\ml\__init__.py            0      0   100%
+src\telcoguard\ml\evaluation.py          3      0   100%
+src\telcoguard\ml\inference.py          29      2    93%   27, 29
+src\telcoguard\ml\preprocessing.py      11      0   100%
+src\telcoguard\ml\training.py           29      0   100%
+------------------------------------------------------------------
+TOTAL                                  287      3    99%
+Coverage HTML written to dir htmlcov
+Coverage XML written to file coverage.xml
+Required test coverage of 75% reached. Total coverage: 98.95%
+============================= 41 passed in 7.29s ==============================

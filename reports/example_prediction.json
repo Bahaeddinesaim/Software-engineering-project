@@ -1,0 +1,7 @@
+{
+  "prediction": 1,
+  "churn_label": "Yes",
+  "churn_probability": 0.6128185504551916,
+  "risk_level": "medium",
+  "model_version": "1.0.0"
+}
