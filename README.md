@@ -11,6 +11,8 @@ SOENFO, année 2026–2027. Enseignante : Dr. Nour El Houda Ben Chaabene.
 
 ## Plateforme de démonstration Streamlit
 
+**[Accéder à la démonstration en ligne](https://software-engineering-project-saimouni.streamlit.app/)**
+
 Une interface française en bleu encre et corail accompagne désormais l'API :
 tableau de bord IBM, simulateur avec trois profils modifiables, exploration filtrée
 des données et présentation des performances réelles du modèle.
