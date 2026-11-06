@@ -51,9 +51,43 @@ def test_explorer_and_empty_selection(dashboard):
 
 def test_missing_dashboard_resources(tmp_path, monkeypatch):
     monkeypatch.setattr(app, "ROOT", tmp_path)
+    monkeypatch.setenv("TELCOGUARD_AUTO_SETUP", "false")
     dashboard = AppTest.from_file(ENTRY, default_timeout=30).run()
     assert not dashboard.exception
     assert dashboard.info
     for page in app.NAVIGATION[1:]:
         dashboard.radio[0].set_value(page).run()
         assert not dashboard.exception
+
+
+def test_fresh_dashboard_initializes_itself(frame, tmp_path, monkeypatch):
+    monkeypatch.setattr(app, "ROOT", tmp_path)
+    monkeypatch.setenv("TELCOGUARD_AUTO_SETUP", "true")
+    monkeypatch.setenv("TELCOGUARD_API_KEY", "")
+
+    def local_download(path):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        frame.to_csv(path, index=False)
+        return path
+
+    monkeypatch.setattr("telcoguard.dashboard.bootstrap.download_data", local_download)
+    dashboard = AppTest.from_file(ENTRY, default_timeout=30).run()
+    assert not dashboard.exception
+    assert (tmp_path / "models/pipeline.joblib").exists()
+    dashboard.button[0].click().run()
+    dashboard.button[0].click().run()
+    assert not dashboard.exception
+    assert 0 <= dashboard.session_state["prediction_result"]["result"]["churn_probability"] <= 1
+
+
+def test_dashboard_initialization_error(tmp_path, monkeypatch):
+    monkeypatch.setattr(app, "ROOT", tmp_path)
+    monkeypatch.setenv("TELCOGUARD_AUTO_SETUP", "true")
+
+    def unavailable(*args):
+        raise RuntimeError("offline")
+
+    monkeypatch.setattr(app, "prepare_demo", unavailable)
+    dashboard = AppTest.from_file(ENTRY, default_timeout=30).run()
+    assert not dashboard.exception
+    assert dashboard.error and "préparation automatique" in dashboard.error[0].value

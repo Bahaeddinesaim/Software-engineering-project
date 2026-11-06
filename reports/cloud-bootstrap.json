@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "rows": 7043,
+  "features_and_target": 20,
+  "model_preserved_on_second_run": true,
+  "prediction": {
+    "prediction": 1,
+    "churn_label": "Yes",
+    "churn_probability": 0.6128185504551916,
+    "risk_level": "medium",
+    "model_version": "1.0.0"
+  },
+  "dataset_sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "scope": "Local empty-directory startup, not remote Cloud execution"
+}

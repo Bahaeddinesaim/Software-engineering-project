@@ -3,6 +3,7 @@
 import base64
 import html
 import json
+import logging
 import re
 from pathlib import Path
 
@@ -12,6 +13,7 @@ import streamlit as st
 
 from telcoguard.api.schemas import Customer
 from telcoguard.config import Settings
+from telcoguard.dashboard.bootstrap import prepare_demo
 from telcoguard.dashboard.data import contract_rates, load_dataset, load_predictor, read_report
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -690,10 +692,25 @@ def main() -> None:
     markup(
         "<style>" + Path(__file__).with_name("style.css").read_text(encoding="utf-8") + "</style>"
     )
-    settings = Settings()
+    settings = Settings(api_key=None)
     model_path = settings.model_path
     if not model_path.is_absolute():
         model_path = ROOT / model_path
+    data_path = ROOT / "data/raw/telco.csv"
+    default_model_path = ROOT / "models/pipeline.joblib"
+    automatic_model = model_path if model_path == default_model_path else None
+    setup_error = False
+    if settings.auto_setup and (
+        not data_path.exists() or (automatic_model is not None and not model_path.exists())
+    ):
+        try:
+            with st.spinner(
+                "Préparation de la démonstration : données IBM et entraînement du modèle…"
+            ):
+                prepare_demo(data_path, automatic_model)
+        except Exception:
+            logging.getLogger(__name__).exception("demo_setup_failed")
+            setup_error = True
     predictor = None
     model_error = None
     if model_path.exists():
@@ -704,7 +721,6 @@ def main() -> None:
                 "Le modèle local n’a pas pu être chargé. Réentraînez-le pour rétablir l’analyse."
             )
     frame = None
-    data_path = ROOT / "data/raw/telco.csv"
     data_error = None
     if data_path.exists():
         try:
@@ -737,6 +753,13 @@ def main() -> None:
     )
     if model_error:
         st.warning(model_error)
+    if setup_error:
+        st.error(
+            "La préparation automatique n’a pas abouti. Vérifiez l’accès réseau au CSV IBM "
+            "et les droits d’écriture du serveur dans les journaux de l’application."
+        )
+        if st.button("Réessayer la préparation"):
+            st.rerun()
     if data_error:
         st.warning(data_error)
     if page == NAVIGATION[0]:

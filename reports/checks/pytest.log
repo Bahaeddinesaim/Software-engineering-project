@@ -4,42 +4,44 @@ rootdir: C:\Users\bahae\Desktop\software engineering projet
 configfile: pyproject.toml
 testpaths: tests
 plugins: anyio-4.16.0, platformdirs-4.14.5, cov-7.1.0
-collected 44 items
+collected 48 items
 
-tests\api\test_api.py ..............                                     [ 31%]
-tests\integration\test_dashboard.py ...                                  [ 38%]
+tests\api\test_api.py ..............                                     [ 29%]
+tests\integration\test_dashboard.py .....                                [ 39%]
 tests\integration\test_training.py ...                                   [ 45%]
-tests\unit\test_cli.py ....                                              [ 54%]
-tests\unit\test_data.py .............                                    [ 84%]
+tests\unit\test_bootstrap.py ..                                          [ 50%]
+tests\unit\test_cli.py ....                                              [ 58%]
+tests\unit\test_data.py .............                                    [ 85%]
 tests\unit\test_ml.py .......                                            [100%]
 
 =============================== tests coverage ================================
 _______________ coverage: platform win32, python 3.11.9-final-0 _______________
 
-Name                                   Stmts   Miss  Cover   Missing
---------------------------------------------------------------------
-src\telcoguard\__init__.py                 1      0   100%
-src\telcoguard\api\__init__.py             0      0   100%
-src\telcoguard\api\dependencies.py        11      0   100%
-src\telcoguard\api\main.py                33      0   100%
-src\telcoguard\api\routes.py              26      0   100%
-src\telcoguard\api\schemas.py             31      0   100%
-src\telcoguard\cli.py                     28      1    96%   45
-src\telcoguard\config.py                  14      0   100%
-src\telcoguard\dashboard\__init__.py       0      0   100%
-src\telcoguard\dashboard\app.py          290     14    95%   264, 400, 402, 412, 414, 420-422, 702-703, 712-713, 739, 741
-src\telcoguard\dashboard\data.py          19      0   100%
-src\telcoguard\data\__init__.py            0      0   100%
-src\telcoguard\data\loader.py             35      0   100%
-src\telcoguard\data\validation.py         36      0   100%
-src\telcoguard\ml\__init__.py              0      0   100%
-src\telcoguard\ml\evaluation.py            3      0   100%
-src\telcoguard\ml\inference.py            29      2    93%   27, 29
-src\telcoguard\ml\preprocessing.py        11      0   100%
-src\telcoguard\ml\training.py             29      0   100%
---------------------------------------------------------------------
-TOTAL                                    596     17    97%
+Name                                    Stmts   Miss  Cover   Missing
+---------------------------------------------------------------------
+src\telcoguard\__init__.py                  1      0   100%
+src\telcoguard\api\__init__.py              0      0   100%
+src\telcoguard\api\dependencies.py         11      0   100%
+src\telcoguard\api\main.py                 33      0   100%
+src\telcoguard\api\routes.py               26      0   100%
+src\telcoguard\api\schemas.py              31      0   100%
+src\telcoguard\cli.py                      28      1    96%   45
+src\telcoguard\config.py                   15      0   100%
+src\telcoguard\dashboard\__init__.py        0      0   100%
+src\telcoguard\dashboard\app.py           306     15    95%   266, 402, 404, 414, 416, 422-424, 719-720, 728-729, 755, 762, 764
+src\telcoguard\dashboard\bootstrap.py      13      0   100%
+src\telcoguard\dashboard\data.py           19      0   100%
+src\telcoguard\data\__init__.py             0      0   100%
+src\telcoguard\data\loader.py              35      0   100%
+src\telcoguard\data\validation.py          36      0   100%
+src\telcoguard\ml\__init__.py               0      0   100%
+src\telcoguard\ml\evaluation.py             3      0   100%
+src\telcoguard\ml\inference.py             29      2    93%   27, 29
+src\telcoguard\ml\preprocessing.py         11      0   100%
+src\telcoguard\ml\training.py              29      0   100%
+---------------------------------------------------------------------
+TOTAL                                     626     18    97%
 Coverage HTML written to dir htmlcov
 Coverage XML written to file coverage.xml
-Required test coverage of 75% reached. Total coverage: 97.15%
-============================= 44 passed in 9.23s ==============================
+Required test coverage of 75% reached. Total coverage: 97.12%
+============================= 48 passed in 11.98s =============================

@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     )
     api_key: SecretStr | None = None
     model_path: Path = Path("models/pipeline.joblib")
+    auto_setup: bool = True
     threshold: float = Field(default=0.5, gt=0, lt=1)
 
     @field_validator("api_key")

@@ -30,6 +30,18 @@ poetry run telcoguard train
 poetry run streamlit run streamlit_app.py
 ```
 
+**Streamlit Community Cloud :** sélectionner **Python 3.11** dans **Advanced settings**
+au déploiement, avec `streamlit_app.py` comme point d'entrée. Python 3.14 ne respecte
+pas les contraintes du projet. Le CSV et le modèle étant exclus de Git, la plateforme
+télécharge désormais automatiquement le vrai CSV IBM et entraîne la Pipeline au
+premier démarrage si ces fichiers sont absents. L'opération est protégée contre
+les initialisations concurrentes et ne remplace aucun modèle existant.
+Un redémarrage avec disque réinitialisé relance cette préparation ; le serveur doit
+avoir accès à `raw.githubusercontent.com` et pouvoir écrire dans `data/` et `models/`.
+Pour désactiver ce comportement : `TELCOGUARD_AUTO_SETUP=false`.
+Un chemin de modèle personnalisé ne déclenche jamais d'entraînement automatique
+à cet emplacement. La clé FastAPI n'est pas nécessaire à la plateforme Streamlit.
+
 Le simulateur charge le modèle local ; il fonctionne sans lancer FastAPI et sans
 clé API. Cela constitue un mode de démonstration local distinct de l'API protégée.
 Le serveur est lié à `127.0.0.1` ; aucune authentification Streamlit n'est fournie.

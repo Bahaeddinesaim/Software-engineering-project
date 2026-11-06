@@ -24,6 +24,29 @@ Ouvrir http://127.0.0.1:8501. Aucune clé API ni deuxième serveur n'est nécess
 pour cette démonstration. La configuration lie le service à 127.0.0.1 ; il n'est
 pas prévu comme service public authentifié. Arrêt : Ctrl+C dans le terminal serveur.
 
+Déploiement Streamlit Community Cloud
+----------------------------------------
+
+Choisir Python 3.11 dans Advanced settings et streamlit_app.py comme point d'entrée.
+Le projet accepte Python 3.11/3.12, pas Python 3.14. Pour modifier la version d'une
+application déjà déployée, suivre la procédure officielle de suppression du
+déploiement puis redéploiement ; le dépôt GitHub reste conservé.
+
+Au premier démarrage sans CSV ni modèle, la plateforme télécharge et valide le CSV
+IBM puis entraîne la Pipeline avec la configuration reproductible existante. Elle
+affiche un indicateur de préparation. Un verrou protège cette opération entre les
+sessions concurrentes du même processus. Les modèles existants sont préservés.
+Les fichiers restent exclus de Git et peuvent disparaître avec le disque éphémère
+du service ; la préparation sera alors renouvelée. Aucune donnée synthétique ni
+modèle sérialisé distant n'est utilisé comme remplacement.
+
+Le serveur doit pouvoir contacter raw.githubusercontent.com et écrire dans data/
+et models/. Un échec affiche un message et un bouton de nouvelle tentative, avec
+une erreur détaillée dans les logs. TELCOGUARD_AUTO_SETUP=false désactive cette
+initialisation. Un chemin personnalisé de modèle manquant reste une erreur de
+configuration ; aucun artefact personnalisé n'est remplacé automatiquement.
+La clé FastAPI n'est pas lue par le dashboard et l'API garde sa protection.
+
 Parcours de soutenance
 ----------------------------------------
 
@@ -44,7 +67,8 @@ Les montants conservent l'unité monétaire du dataset, sans conversion en euros
 Les statistiques reposent sur data/raw/telco.csv validé, jamais sur DATA.csv ou
 des nombres générés. Les identifiants sont exclus. L'aperçu tabulaire présente au
 plus 100 lignes ; les graphiques portent sur toute la sélection. Une sélection vide
-affiche une aide ; un modèle absent empêche l'inférence et propose un réentraînement.
+affiche une aide ; si la préparation est désactivée ou échoue, un modèle absent
+empêche l'inférence et propose un réentraînement.
 Les ressources sont mises en cache avec invalidation selon leur modification.
 
 Vérification

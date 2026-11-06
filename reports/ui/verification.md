@@ -14,7 +14,7 @@ Vérification locale du 6 novembre 2026, Streamlit 1.67.0 et Plotly 6.9.0.
 | Chargement des illustrations locales | PASS — contrôle naturalWidth dans Chrome |
 | Erreurs JavaScript de page | PASS — aucune détectée |
 | Débordement horizontal de la page mobile | PASS — aucun détecté |
-| Suite complète | PASS — 44 tests, couverture 97,15 % |
+| Suite complète | PASS — 48 tests, couverture 97,12 % |
 | Ruff, Poetry, Sphinx | PASS — journaux dans reports/checks |
 | GitHub Actions distant | NOT RUN |
 
