@@ -23,7 +23,7 @@ Dans cet espace de travail :
 .\.venv\Scripts\python -m streamlit run streamlit_app.py --server.port 8501
 ```
 
-Ouvrir **http://127.0.0.1:8501**. Après installation dans un clone neuf :
+Ouvrir **http://localhost:8501**. Après installation dans un clone neuf :
 
 ```console
 poetry install
